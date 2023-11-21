@@ -1,0 +1,86 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# LeafArea
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of LeafArea is to facilitate the calculation of leaf area in plants using predictor variables such as length, width, and species type. The package is currently capable of estimating leaf area for six important Andean fruit species, including *S. quitoense*, *S. betaceum*, *P. peruviana*, *R. fruticosus*, *P. ligularis*, and *P. edulis*.
+
+Leaf area is a critical parameter in plant physiology and ecology, influencing various aspects of plant growth, development, and environmental interactions. The LeafArea package leverages predictor variables, such as leaf length and width, along with species-specific information, to provide accurate estimations of leaf area for the specified Andean fruit species.
+
+## Key Features
+
+- Leaf Area Calculation: Perform precise calculations of leaf area based on input variables, including length, width, and species type.
+
+- Species-Specific Estimations: The package is tailored to accommodate the characteristics of six major Andean fruit species -*S. quitoense*, *S. betaceum*, *P. peruviana*, *R. fruticosus*, *P. ligularis*, and *P. edulis*— ensuring accurate and species-specific estimations.
+
+- User-Friendly Interface: LeafArea is designed to offer a user-friendly interface, making it accessible to researchers, agronomists, and plant scientists interested in obtaining reliable leaf area measurements for Andean fruit species.
+
+Future Developments:
+
+The LeafArea package is continuously evolving, with plans to expand its capabilities to cover additional plant species and incorporate advanced functionalities. We welcome contributions from the community to enhance the package's versatility and applicability in diverse research settings.
+
+## Installation
+
+You can install the development version of LeafArea from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("velasquez-vasconez/LeafArea")
+```
+
+## Example
+
+This is a basic example which shows you how to calculate Leaf Area:
+
+```{r example, warning= F, message=F}
+library(LeafArea)
+
+df <- data.frame(
+   Culture = c("S. quitoense", "S. quitoense", "S. quitoense", "S. quitoense",
+               "S. quitoense", "S. quitoense", "S. betaceum", "S. betaceum",
+               "S. betaceum", "S. betaceum", "S. betaceum", "S. betaceum"),
+   LL = c(25, 27, 200, 56, NA, 56, 25, 27, 28, 56, 56, 56),
+   LW = c(45, 56, 57, 53, 54, NA, 57, 56, 57, 53, 54, 55)
+ )
+
+sp <- df$Culture
+LeafLength <- df$LL
+LeafWidth <- df$LW
+df_example <- data.frame(sp, LeafLength, LeafWidth)
+
+# Use the outlier_treatment_mice function
+df_result_outlier <- LeafArea::outlier_treatment_mice(df_example)
+
+df_result<-calculate_LeafArea_rf(df_result_outlier)
+
+# Print the resulting dataset
+print(df_result)
+
+```
+
+## Contributing
+
+We welcome contributions from the community. If you find a bug, have a feature request, or want to contribute to the development of LeafArea, please follow these steps:
+
+1. Check if an issue already exists in the [issue tracker](https://github.com/pavelasquezvasconez/LeafArea/issues). If not, open a new issue, providing as much detail as possible.
+
+2. If you're interested in contributing code, please fork the repository and submit a pull request. Make sure to follow our coding guidelines and maintain clear commit messages.
+
+3. Help us improve the documentation by fixing typos, improving explanations, or adding examples.
+
+Your contributions are greatly appreciated.
