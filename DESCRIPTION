@@ -15,3 +15,5 @@ Suggests:
   see,
   patchwork,
   testthat
+URL: https://github.com/velasquez-vasconez/LeafArea
+BugReports: https://github.com/velasquez-vasconez/LeafArea/issues
