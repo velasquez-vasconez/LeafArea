@@ -1,0 +1,17 @@
+Package: LeafArea
+Title: LeafArea - Estimating Leaf Area in R
+Version: 0.0.0.9000
+Authors@R: 
+    person("Pedro Alexander", "Velasquez-Vasconez", , "pavelasquezv02@gmail.com",
+    role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-7564-4519"))
+Description: The LeafArea R package is a powerful tool for efficient and accurate calculation of leaf area based on input measurements of leaf length and width. This package streamlines the process of estimating leaf area, providing a user-friendly interface and robust algorithms. Researchers, botanists, and ecologists can leverage this package to enhance their studies involving plant growth and physiology, with the convenience of accurate leaf area determination from fundamental length and width measurements.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Imports: xgboost, mice, caret, readxl, randomForest, MuMIn, nlme, performance
+Suggests:
+  see,
+  patchwork,
+  testthat
