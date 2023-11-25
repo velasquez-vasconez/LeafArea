@@ -45,8 +45,12 @@
 calculate_LeafArea_lmm <- function(data, LeafLength = "LengthLeaf",
                                    sp = "sp",
                                    LeafWidth = "WidthLeaf") {
+  # Construir la ruta relativa
+  file_path <- system.file("tests", "testdata", "df.xlsx",
+                           package = "LeafArea")
+
   # Leer la base de datos
-  df <- read_excel("C:/Alex/LeafArea/inst/tests/testdata/df.xlsx")
+  df <- read_excel(file_path)
 
   #Estimação do modelo com Interceptos e Inclinações Aleatórios
   model <- lme(fixed = sqrt_LeafArea ~ sqrt_Length_Width,

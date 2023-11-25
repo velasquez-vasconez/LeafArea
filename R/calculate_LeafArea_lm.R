@@ -45,8 +45,12 @@ calculate_LeafArea_lm <- function(data, LeafLength = "LengthLeaf",
                                   sp = "sp",
                                   LeafWidth = "WidthLeaf") {
 
+  # Construir la ruta relativa
+  file_path <- system.file("tests", "testdata", "df.xlsx",
+                           package = "LeafArea")
+
   # Leer la base de datos
-  df <- read_excel("C:/Alex/LeafArea/inst/tests/testdata/df.xlsx")
+  df <- read_excel(file_path)
 
   # Crear el modelo lineal
   model <- lm(sqrt_LeafArea ~ sqrt_Length_Width + sp, data = df)

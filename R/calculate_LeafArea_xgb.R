@@ -43,7 +43,13 @@
 #' print(df_result)
 calculate_LeafArea_xgb <- function(data) {
 
-  df <- read_excel("C:/Alex/LeafArea/inst/tests/testdata/df.xlsx")
+  # Construir la ruta relativa
+  file_path <- system.file("tests", "testdata", "df.xlsx",
+                           package = "LeafArea")
+
+  # Leer la base de datos
+  df <- read_excel(file_path)
+
   set.seed(1234)
   n <- sample(1:2,
             size=nrow(df),

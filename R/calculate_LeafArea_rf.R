@@ -43,7 +43,12 @@
 #' print(df_result)
 calculate_LeafArea_rf <- function(data) {
 
-  df <- read_excel("C:/Alex/LeafArea/inst/tests/testdata/df.xlsx")
+  # Construir la ruta relativa
+  file_path <- system.file("tests", "testdata", "df.xlsx",
+                           package = "LeafArea")
+
+  # Leer la base de datos
+  df <- read_excel(file_path)
   set.seed(1234)
   n <- sample(1:2,
               size=nrow(df),
@@ -118,6 +123,8 @@ calculate_LeafArea_rf <- function(data) {
   # Calcular el R^2 usando la función R2 de caret
   r2 <- R2(predicciones_numeric, valores_reales_numeric)
   print(paste("R2 of training set:", round(r2, 2)))
+
+  cat("\n---------------------------------------------\n\n")
 
   cat("Performance Metrics of Random Forest model:\n")
   print(modelo_rf)
